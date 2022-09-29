@@ -62,38 +62,10 @@ a
 - The setTimeout will from the stack to an web api processor and back to the task queue, but it only enters back to the stack after the stack finished execute other code before it.
 - Therefore the setTimeout gets putted onto the last position for executing.
 
-#### 10: Promises
-- Just like in real life, what you do is to commit to something by promising you'll do it. Then that promise has one of two results, either that promise is **completed** (**resolve**) or it's **failed** (**rejected**).
-
-- Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code. 
-
-**Benefits of Promises**
-- Improves Code Readability
-- Better handling of asynchronous operations
-- Better flow of control definition in asynchronous logic
-- Better Error Handling
-
-```js
-let my_promise = new Promise((resolve, reject) => {
-    let a = 1 + 1
-    if (a == 2) {
-        resolve('Success')
-    } else {
-        reject('Failed')
-    }
-})
-
-my_promise.then((message) => {
-    console.log("This is in the then: " + message)
-}).catch((message) => {
-    console.log("This is in the catch: " + message)
-})
-```
-
-- Promises are great when you need to do something that is going to take a long time in the background such as downloading an image from a different server. You want to do something else while waiting for it to be completed rather than put onhold everything else to wait for it. Also you can catch it if it fails so that you can make a retry or give the user an error message.
-
-#### 11: Callbacks
-- Callback is a function that takes another function as an argument. Something that was meant to be replaced by JS Promises. Which is a bit more complicated and harder than JS Promises.
+#### 10: Callbacks
+- Callback is a function that takes another function as an argument,
+- A callback is a function that you pass inside another function and this inner function won't be executed right away, but later time based on some specific condition, whether through a setTimeout, click event, or outside critirials. 
+- Something that was meant to be replaced by JS Promises. Which is a bit more complicated and harder than JS Promises.
 
 ```js
 function sumCallback(a, b, callback) {
@@ -105,6 +77,16 @@ function handleSum(sum) {
 }
 
 sumCallback(1, 2, handleSum)
+```
+
+```js
+const button = document.querySelector("button")
+addClickEvent(button, () => {
+    console.log("clicked")
+})
+function addClickEvent(element, callback) {
+    element.addEventListner("click", callback)
+}
 ```
 
 ```js
@@ -173,6 +155,94 @@ watchTutorialPromise().then((message) => {
     console.log(error.name + ' ' + error.message)
 })
 ```
+
+#### 11: Promises
+- Promise is just a better version of callback. They are basically going to execute some code, if they succeed they will fulfill their **promise** and return the **result** of that promise, or they fail their promise, tthey will return a **rejection**.
+- Just like in real life, what you do is to commit to something by promising you'll do it. Then that promise has one of two results, either that promise is **completed** (**resolve**) or it's **failed** (**rejected**).
+
+```js
+const promise = new Promise((resolve, reject) => {
+    const sum = 1 + 1
+    if (sum === 2) {
+        resolve("Success")
+    } else {
+        reject("Error")
+    }
+})
+```
+
+- `.then` is like you call the resolve function, and message is the parameter you'll pass into the resolve function. 
+- `.catch` is the reject function or anything you got an error in your promise, either it is the reject function or any error occurs insidee your promise. It not only catchh the rejection, but also catch any type of error.
+- If the promise succeed => .then, if not => .catch, else => .catch
+- If multiple promise at once, use: Promise.all, .any, .race, .allSettled.
+
+```js
+promise.then(message => {
+    console.log(message)
+}).catch(mmessage => {
+    console.error(message)
+})
+```
+
+- Promises were created to eliminate **callback hell**.
+
+```js
+// Callback Hell
+setTimeout(() => {
+    console.log("A")
+    setTimeout(() => {
+        console.log("B")
+        setTimeout(() => {
+            console.log("C")
+        }, 100)
+    }, 100)
+}, 100)
+
+// Promise Solution to Callback Hell
+setTimeoutPromise(100)
+    .then(() => {
+        console.log("A")
+    })
+    .then(() => {
+        console.log("B")
+    })
+    .then(() => {
+        console.log("C")
+    })
+
+function setTimeoutPromise() {
+    new Promise((resolve, reject) => 
+        setTimeout(resolve, duration)
+    })
+}
+```
+
+- Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code. 
+
+**Benefits of Promises**
+- Improves Code Readability
+- Better handling of asynchronous operations
+- Better flow of control definition in asynchronous logic
+- Better Error Handling
+
+```js
+let my_promise = new Promise((resolve, reject) => {
+    let a = 1 + 1
+    if (a == 2) {
+        resolve('Success')
+    } else {
+        reject('Failed')
+    }
+})
+
+my_promise.then((message) => {
+    console.log("This is in the then: " + message)
+}).catch((message) => {
+    console.log("This is in the catch: " + message)
+})
+```
+
+- Promises are great when you need to do something that is going to take a long time in the background such as downloading an image from a different server. You want to do something else while waiting for it to be completed rather than put onhold everything else to wait for it. Also you can catch it if it fails so that you can make a retry or give the user an error message.
 
 #### 12: Closures
 - Every scope has access to variables outside of its scope. Inner functions inside another outer function can access to the outer function's variables and data.
@@ -295,7 +365,67 @@ class Monster {
         console.log(this.name)
     }
 }
+```
 
+#### 17: Async & Await
+- Async Await is to write promises in a different and cleaner way.
+`await` is to tell JS to wait on that code and execute only after everything else is done.
+- The purpose of this is to make your code look like synchronous but actuall it is asynchronous.
+```js
+function setTimeoutPromise(delay) }{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`You waited ${delay} miliseconds.`)
+        }, delay)
+    })
+}
+
+async function doStuff() {
+    try {
+        const message = await setTimeoutPromise(250)
+        console.log(message)
+        console.log("1")
+
+        const message2= await setTimeoutPromise(250)
+        console.log(message)
+        console.log("2")
+    } catch (error) {
+        console.error(error)
+    }
+}
+```
+
+```js
+function getValueWithDelay(value, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(value)
+        }, delay)
+    })
+}
+
+function getValueWithError(value, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("error")
+        }, delay)
+    })
+}
+
+async function getValue() {
+    try {
+        const value1 = await getValueWithDelay("Jake Smith", 300)
+        console.log(value1)
         
+        const value2 = await geteValueWithDelay("Billy Thompson", 300)
+        console.log(value2)
 
+        const value3 = await getValueWithError("None", 100)
+        console.log(value3)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        console.log("finally")
+    }
+}
 ```
