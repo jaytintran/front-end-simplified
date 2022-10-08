@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tran</title>
+    <link rel="stylesheet" href="style.css">
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <!--==================== EmailJS ====================-->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("qyuU-UqOSE7i73Hjr");
+        })();
+    </script>
+</head>
+<body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="./assets/logo.svg" alt="">
+            </figure>
+
+            <ul class="nav__link--list">
+                <li class="nav__link">
+                    <a href="#" onclick="toggleModal()" class="
+                        nav__link--anchor 
+                        link__hover-effect
+                        link__hover-effect-black-">
+                        About
+                    </a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="
+                        nav__link--anchor 
+                        link__hover-effect
+                        link__hover-effect-black-">
+                        Projects
+                    </a>
+                </li>
+                <li class="nav__link">
+                    <a href="#" onclick="toggleModal()" class="
+                        nav__link--anchor 
+                        link__hover-effect
+                        link__hover-effect-black-">
+                        Contact
+                    </a>
+                </li>
+                <li class="nav__link clickable" onclick="toggleContrast()">
+                    <a href="#" class="
+                        nav__link--anchor 
+                        link__hover-effect
+                        link__hover-effect-black-">
+                        <i class="fas fa-adjust"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <header class="header">
+            <div class="header__content">
+                <div class="hero">
+                    <h1 class="header__title">Hello</h1>
+                    <h1 class="header__title highlight">I'm Tin.</h1>
+                    <p class="header__paragraph">
+                        I'm a <strong class="highlight">Front-end Software Engineer</strong> with a passion for building web applications with great user experience.
+                        <br>
+                        Here's a bit <strong class="highlight header__about-me clickable" onclick="toggleModal()">about me</strong>.
+                    </p>
+                    <div class="header__social--list">
+                        <a href="https://www.linkedin.com/in/jaytin/" target="_blank" class="social__link clickable">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/jaytintran" target="_blank" class="social__link clickable">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="./assets/resume.pdf" target="_blank" class="social__link clickable">
+                            <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="header__skills">
+                    <i class='clickable bx bxl-html5' style="color: #b82c2c"></i>
+                    <i class='clickable bx bxl-css3' style="color: #b99dee"></i>
+                    <i class='clickable bx bxl-javascript' style="color: #6eff42"></i>              
+                    <i class='clickable bx bxl-react' style="color: #96bce7"></i>              
+                    <i class='clickable bx bxl-python' style="color: #31d4a3"></i>
+                    <i class='clickable bx bxl-git' style="color: #cc3131"></i>
+                    <i class='clickable bx bxl-nodejs' style="color: #75da31"></i>
+                    <i class='clickable bx bxl-mongodb' style="color: #2d8a54"></i>                
+                    <i class='clickable bx bxl-postgresql' style="color: #b493f0"></i>
+                    <i class='clickable bx bx-terminal' style="color: #c5acac"></i>
+                    <i class='clickable bx bxl-firebase' style="color: #e97d17"></i>
+                    <i class='clickable bx bxl-visual-studio' style="color: #19568f"></i>
+                </div>
+            </div>
+        </header>
+
+        <a href="#landing-page">
+            <button class="mail__btn clickable" onclick="toggleModal()" style="z-index: 10;">
+                <i class="fas fa-envelope"></i>
+            </button>
+        </a>
+
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon clickable">
+            </div>
+        </a>
+
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h1 class="modal__title modal__about-title">Here's a bit about me.</h1>
+                <h2 class="modal__subtitle modal__about-subtitle">Front-end Software Engineer</h2>
+                <p class="modal__description">I'm a 22 years old developer coming from Vietnam. I have a strong passion for technology overall, and <span class="modal__highlight">front-end development</span> specifically.</p>
+                <p class="modal__description">My aim is to build user-centered applications with great UI and <span class="modal__highlight">user experience</span>. Beside technology, I learn and can speak multiple languages such as Frech, German, English and Vietnamese.</p>
+                <p class="modal__description">At the moment, I'm honing my skills by working on difficult engineering problems and self-taught myself on becoming a great <span class="modal__highlight">software developer</span>.</p>
+            
+                <div class="modal__about-skills">
+                    <i class='clickable bx bxl-html5' style="color: #b82c2c"></i>
+                    <i class='clickable bx bxl-css3' style="color: #b99dee"></i>
+                    <i class='clickable bx bxl-javascript' style="color: #6eff42"></i>              
+                    <i class='clickable bx bxl-react' style="color: #96bce7"></i>              
+                    <i class='clickable bx bxl-python' style="color: #31d4a3"></i>
+                    <i class='clickable bx bxl-git' style="color: #cc3131"></i>
+                    <i class='clickable bx bxl-nodejs' style="color: #75da31"></i>
+                    <i class='clickable bx bxl-mongodb' style="color: #2d8a54"></i>                
+                    <i class='clickable bx bxl-postgresql' style="color: #b493f0"></i>
+                    <i class='clickable bx bx-terminal' style="color: #232323"></i>
+                    <i class='clickable bx bxl-firebase' style="color: #e97d17"></i>
+                    <i class='clickable bx bxl-visual-studio' style="color: #19568f"></i>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <h1 class="modal__title modal__contact-title">Let's talk</h1>
+                <h2 class="modal__subtitle modal__contact-subtitle">I'm open to new opportunities.</h2>
+                
+                <form onsubmit="contact(event)" id="modal__contact--form">
+                    <div class="form__item">
+                        <label for="name" class="form__item--label">Name</label>
+                        <input id="name" type="text" name="user_name" class="form__item--input" required>
+                    </div>
+                    <div class="form__item">
+                        <label for="email" class="form__item--label">Email</label>
+                        <input id="email" type="email" name="user_email" class="form__item--input" required>
+                    </div>
+                    <div class="form__item">
+                        <label for="message" class="form__item--label">Message</label>
+                        <textarea id="message" type="text" name="message" class="form__item--input"></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__item--submit clickable">
+                        <i class='bx bx-mail-send'></i>
+                        Send it to me!
+                    </button>
+                </form>
+
+                <div class="modal__contact--overlay modal__contact--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+
+                <div class="modal__contact--overlay modal__contact--success">
+                    <i class='bx bx-party' ></i>
+                    <h1>Thanks for the message! <br> Looking for getting to know you soon.</h1>
+                </div>
+
+                <i class="fas fa-times modal__exit clickable" onclick="toggleModal()"></i>
+            </div>
+
+        </div>
+
+        <img src="./assets/circle.svg" class="shape shape--0">
+        <img src="./assets/semi circle.svg" class="shape shape--1">
+        <img src="./assets/triangle.svg" class="shape shape--2">
+        <img src="./assets/semi circle.svg" class="shape shape--3">
+        <img src="./assets/squiggly.svg" class="shape shape--4">
+        <img src="./assets/circle.svg" class="shape shape--5">
+        <img src="./assets/semi circle.svg" class="shape shape--6">
+        <img src="./assets/squiggly.svg" class="shape shape--7">
+        <img src="./assets/triangle.svg" class="shape shape--8">
+    </section>
+
+    <!--==================== PROJECTS ====================-->
+    <section id="projects">
+        <div class="container">
+            <h1 class="section__title">Projects</h1>
+            <span class="section__subtitle">Most recent works</span>
+
+            <!-- FULL-STACK -->
+            <div class="projects__container container" style="margin-bottom: 2rem;">
+                <div class="projects__specialization">
+                    <h3 class="projects__specialization--title">Development</h3>
+                    
+                    <div class="projects__specialization--skills">
+                        <i class='bx bxl-javascript'></i>              
+                        <i class='bx bxl-react'></i>              
+                        <i class='bx bxl-git'></i>              
+                        <i class='bx bxl-redux'></i>
+                        <i class='bx bxl-tailwind-css'></i>
+                    </div>
+                </div>
+            
+                <div class="projects__wrapper">
+                    <!--==================== Lyriks ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/lyriks.jpg" alt="" class="projects__img">
+                        <div class="projects__data">
+                            <h3 class="projects__title">Lyriks</h3>
+                            <p class="projects__description">Full-stack music player and brower web app based on Spotify inspiration.</p>
+                            <a href="#" class="projects__button clickable" target="_blank">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--==================== Movie Box ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/movie-box.png" alt="" class="projects__img">
+                        <div class="projects__data">
+                            <h3 class="projects__title">Movie Box</h3>
+                            <p class="projects__description">Full-stack movie streaming and catalogue web app based on Netflix inspiration.</p>
+                            <a href="https://filmpirex.netlify.app/" class="projects__button clickable" target="_blank">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- FRONT-END -->
+            <div class="projects__container container" style="margin-bottom: 6rem;">
+                <div class="projects__specialization">
+                    <h3 class="projects__specialization--title">Design</h3>
+                    
+                    <div class="projects__specialization--skills">
+                        <i class='bx bxl-html5'></i>
+                        <i class='bx bxl-css3'></i>
+                        <i class='bx bxl-sass'></i>
+                        <i class='bx bxl-bootstrap'></i>              
+                        <i class='bx bxl-javascript'></i>              
+                        <i class='bx bxl-git'></i>              
+                    </div>
+                </div>
+            
+                <div class="projects__wrapper">
+                    <!--==================== Elec Car ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/elec-car.png" alt="" class="projects__img">
+                        <div class="projects__data">
+                            <h3 class="projects__title">Elec-Car</h3>
+                            <p class="projects__description">Responsive mobile-first design for a car dealership agency. Used HTML/CSS, JS and BEM CSS.</p>
+                            <a href="https://jaytintran.github.io/elec-car" class="projects__button clickable" target="_blank">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!--==================== Travel Geek ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/travel-geek.png" alt="" class="projects__img">
+    
+                        <div class="projects__data">
+                            <h3 class="projects__title">Travel Geek</h3>
+                            <p class="projects__description">A landing page designed for travel agency to showcase their photography and works.</p>
+                            <a href="https://jaytintran.github.io/travel-geek" class="button button--flex button--small projects__button" target="_blank">
+                                <i class="fas fa-link"></i>                                
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!--==================== Deliverfy ====================-->
+                    <!-- <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/deliverfy.png" alt="" class="projects__img">
+    
+                        <div class="projects__data">
+                            <h3 class="projects__title">Deliverfy</h3>
+                            <p class="projects__description">Full page design for a delivery service. Showcasing their services and works.</p>
+                            <a href="https://jaytintran.github.io/deliverfy" class="button button--flex button--small projects__button" target="_blank">
+                                <i class="fas fa-link"></i>    
+                            </a>
+                        </div>
+                    </div> -->
+    
+                    <!--==================== Yummey ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/yummey.png" alt="" class="projects__img">
+    
+                        <div class="projects__data">
+                            <h3 class="projects__title">Yummey</h3>
+                            <p class="projects__description">Full page design for a restaurant specialized in salad and natural food. Showcasing their cooks and information.</p>
+                            <a href="https://jaytintran.github.io/yummey" class="button button--flex button--small projects__button" target="_blank">
+                                <i class="fas fa-link"></i>    
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== Rolexie ====================-->
+                    <div class="projects__project">
+                        <div class="projects__bg"></div>
+                        <img src="./assets/rolexie.png" alt="" class="projects__img">
+    
+                        <div class="projects__data">
+                            <h3 class="projects__title">Rolexie</h3>
+                            <p class="projects__description">A website design for a luxirious watches dealer. Beautiful demonstration of their watches and contact information.</p>
+                            <a href="https://jaytintran.github.io/rolexie" class="button button--flex button--small projects__button" target="_blank">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--==================== FOOTER ====================-->
+    <footer>
+        <div class="container">
+            <figure>
+                <img src="./assets/logo.svg" alt="">
+            </figure>
+
+            <div class="footer__social--list">
+                <a href="https://github.com/jaytintran" target="_blank" class="footer__social--link link__hover-effect--white">GitHub</a>
+                <a href="https://www.linkedin.com/in/jaytin/" target="_blank" class="footer__social--link link__hover-effect--white">LinkedIn</a>
+                <a href="#landing-page" class="footer__social--link link__hover-effect--white" onclick="toggleModal()">Email</a>
+                <a href="./assets/resume.pdf" target="_blank" class="footer__social--link link__hover-effect--white">Resume</a>
+            </div>
+
+            <span class="footer__copyright">Made by Tin Tran</span>
+        </div>
+    </footer>
+
+    <!--==================== MAIN JS ====================-->
+    <script src="./script.js"></script>
+</body>
+</html>

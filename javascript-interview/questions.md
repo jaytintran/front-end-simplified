@@ -279,7 +279,7 @@ a.forEach((e, index) => {
 // 4: 3
 ```
 
-#### 13: Explain Map()
+#### 13: Explain map()
 - Map loop through an array, manipulate each element in the array, and return a new array based on that, without affecting the old array.
 
 ```js
@@ -429,3 +429,72 @@ async function getValue() {
     }
 }
 ```
+
+#### 18: fetch()
+- This method let you fetch aka query information from the web into your project as JSON format, you do this via APIs, essentially APIs are really just websites that return to you data that you can use inside of your project.
+
+```js
+// Promsie version
+fetch("https://jsonplaceholder.typicode.com/users").then(respone => respone.json()).then(data => {
+    console.log(data)
+    data.map(user => {
+        console.log(user.name)
+    })
+})
+
+// => 10 user objects
+
+// Async Await version
+const URL = "https://jsonplaceholer.typicode.com/users"
+async functioon doStuff() {
+    try {
+        const response = await fetch(URL)
+        if (response.ok) {
+            await users = response.json
+            console.log(users.map(user => console.log(user.name)))
+        } else {
+            console.log("Failure)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
+```
+
+- Send data to the api with fetch:
+
+```js
+async functioon doStuff() {
+    try {
+        const response = await fetch(URL, {
+            method: 'POST'  // GET for receive, POST for send | DELETE, PUT
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify{
+                title: "New post"
+            } 
+        })
+
+        const post = await response.json()
+        console.log(post)
+    } catch (error) {
+        console.log(error)
+    }
+} 
+```
+
+#### 19: Explain Browser Storage?
+- There're 3 types of storages in every modern day browser
+```js
+// Local Storage | Cookies              | Session Storage
+// 10MB          | 4KB                  | 5MB
+// Never Expire  | Manual Expiration    | Expire on Tab Close
+// Client        | Client/Server        | Client
+// Easy          | Hard                 | Easy
+
+localStorage.setItem('Name', 'Tin')
+localStorage.setItem('Name', 'Jay')
+```
+
