@@ -498,3 +498,17 @@ localStorage.setItem('Name', 'Tin')
 localStorage.setItem('Name', 'Jay')
 ```
 
+#### 20: How to Hit Data in the API?
+
+```js
+fetch('https://jsonplaceholder.typicode.com/users/1')
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+        userEmail.innerHTML = data.email
+    })
+```
+
+- First, we need to fetch it, then we convert it into json, and then we'll get the data and decide what to do with it.

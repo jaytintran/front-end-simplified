@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treact - Landing Page Builder</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -13,28 +14,40 @@
             <figure>
                 <img src="./assets/logo.svg" alt="Treat's Logo" class="nav__logo"> Treact
             </figure>
-            <ul class="nav__list">
-                <li class="nav__list--item">
-                    <a href="#" class="nav__list--link">About</a>
-                </li>
-                <li class="nav__list--item">
-                    <a href="#" class="nav__list--link">Blogs</a>
-                </li>
-                <li class="nav__list--item">
-                    <a href="#" class="nav__list--link">Pricing</a>
-                </li>
-                <li class="nav__list--item">
-                    <a href="#" class="nav__list--link">Contact Us</a>
-                </li>
-
-                <ul class="nav__list--authenticate">
-                    <li class="authenticate__item">
-                        <a href="#" class="authenticate__link">Login</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__list--item">
+                        <a href="#" class="nav__link">About</a>
                     </li>
-                    <li class="authenticate__item">
-                        <a href="#" class="authenticate__link--sign-up">Sign Up</a>
+                    <li class="nav__list--item">
+                        <a href="#" class="nav__link">Blogs</a>
                     </li>
+                    <li class="nav__list--item">
+                        <a href="#" class="nav__link">Pricing</a>
+                    </li>
+                    <li class="nav__list--item">
+                        <a href="#" class="nav__link">Contact Us</a>
+                    </li>
+    
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                    
                 </ul>
+
+                <!-- Toggle Button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-3-line"></i>
+                </div>                
+            </div>
+
+            <ul class="nav__list--authenticate">
+                <li class="authenticate__item">
+                    <a href="#" class="authenticate__link">Login</a>
+                </li>
+                <li class="authenticate__item">
+                    <a href="#" class="authenticate__link--sign-up">Sign Up</a>
+                </li>
             </ul>
         </nav>
 
@@ -285,5 +298,7 @@
             </div>
         </section>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
