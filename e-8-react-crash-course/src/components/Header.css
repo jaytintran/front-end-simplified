@@ -1,0 +1,17 @@
+.header {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #7645d9;
+}
+
+hr {
+    background-color: #d64141;
+    width: 10%;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+}
